@@ -1,6 +1,6 @@
 # Gesture-Based Interface for Computer Interaction
 
-Welcome to the Gesture-Based Interface for Computer Interaction repository! This project aims to develop a Python-based interface that allows users to interact with their computers using gestures.
+Welcome to the Gesture-Based Interface for Computer Interaction repository! This project aims to develop a Python-based interface that allows users to interact with their computers using hand gestures.
 
 ## Table of Contents
 - [Introduction](#introduction)
@@ -9,7 +9,6 @@ Welcome to the Gesture-Based Interface for Computer Interaction repository! This
 - [Usage](#usage)
 - [Files Overview](#files-overview)
 - [Contributing](#contributing)
-- [License](#license)
 - [Contact](#contact)
 
 ## Introduction
@@ -75,10 +74,6 @@ Contributions are welcome! If you would like to contribute to this project, plea
 3. Make your changes and commit them (`git commit -am 'Add new feature'`).
 4. Push to the branch (`git push origin feature-branch`).
 5. Create a new Pull Request.
-
-## License
-
-This project is licensed under the MIT License. See the [LICENSE](LICENSE) file for more details.
 
 ## Contact
 
