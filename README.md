@@ -9,7 +9,6 @@ Welcome to the Gesture-Based Interface for Computer Interaction repository! This
 - [Usage](#usage)
 - [Files Overview](#files-overview)
 - [Contributing](#contributing)
-- [Contact](#contact)
 
 ## Introduction
 
@@ -74,12 +73,6 @@ Contributions are welcome! If you would like to contribute to this project, plea
 3. Make your changes and commit them (`git commit -am 'Add new feature'`).
 4. Push to the branch (`git push origin feature-branch`).
 5. Create a new Pull Request.
-
-## Contact
-
-If you have any questions or suggestions, feel free to reach out to me:
-
-- GitHub: [AryanMishra1789](https://github.com/AryanMishra1789)
 
 Thank you for checking out the Gesture-Based Interface for Computer Interaction project. I hope you find it useful and engaging!
 ```` ▋
