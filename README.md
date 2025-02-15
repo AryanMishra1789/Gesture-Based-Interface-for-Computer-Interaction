@@ -75,4 +75,4 @@ Contributions are welcome! If you would like to contribute to this project, plea
 5. Create a new Pull Request.
 
 Thank you for checking out the Gesture-Based Interface for Computer Interaction project. I hope you find it useful and engaging!
-```` ▋
+
