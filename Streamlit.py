@@ -158,7 +158,7 @@ st.markdown(
 
 # Header
 st.markdown(
-    '<div class="header"><h1>Gesture Controlled Interface for Computer Interaction</h1><p>Control your system seamlessly with hand gestures</p></div>',
+    '<div class="header"><h1>Gesture Pilot: Gesture Controlled Interface for Computer Interaction</h1><p>Control your system seamlessly with hand gestures</p></div>',
     unsafe_allow_html=True,
 )
 
