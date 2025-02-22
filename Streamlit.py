@@ -25,7 +25,6 @@ volume = cast(interface, POINTER(IAudioEndpointVolume))
 # Webcam controls
 camera_running = {'brightness': False, 'volume': False, 'mouse': False}
 
-
 def start_camera(control):
     if camera_running[control]:
         return
@@ -58,7 +57,6 @@ def start_camera(control):
     cap.release()
     cv2.destroyAllWindows()
 
-
 def adjust_brightness(landmarks):
     try:
         y_coordinate = landmarks[8]['y']
@@ -67,7 +65,6 @@ def adjust_brightness(landmarks):
     except Exception as e:
         st.error(f"Error adjusting brightness: {e}")
 
-
 def adjust_volume(landmarks):
     try:
         y_coordinate = landmarks[4]['y']
@@ -75,7 +72,6 @@ def adjust_volume(landmarks):
         volume.SetMasterVolumeLevel(volume_level, None)
     except Exception as e:
         st.error(f"Error adjusting volume: {e}")
-
 
 def control_mouse(landmarks):
     try:
@@ -86,7 +82,6 @@ def control_mouse(landmarks):
         pyautogui.moveTo(cursor_x, cursor_y)
     except Exception as e:
         st.error(f"Error controlling mouse: {e}")
-
 
 # Streamlit UI
 st.set_page_config(page_title="Gesture Controlled Interface", layout="wide")
