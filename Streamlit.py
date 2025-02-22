@@ -3,24 +3,40 @@ import cv2
 import mediapipe as mp
 from threading import Thread
 from google.protobuf.json_format import MessageToDict
-from comtypes import CoInitialize, CLSCTX_ALL
-from ctypes import cast, POINTER
-from pycaw.pycaw import AudioUtilities, IAudioEndpointVolume
+import platform
+
+# Check if the platform is Windows for COM support
+if platform.system() == "Windows":
+    from comtypes import CoInitialize, CLSCTX_ALL
+    from ctypes import cast, POINTER
+    from pycaw.pycaw import AudioUtilities, IAudioEndpointVolume
+else:
+    CoInitialize = None
+    CLSCTX_ALL = None
+    cast = None
+    POINTER = None
+    AudioUtilities = None
+    IAudioEndpointVolume = None
+
 import pyautogui
 import screen_brightness_control as sbc
 
-# Initialize COM for pycaw
-CoInitialize()
+# Initialize COM for pycaw if on Windows
+if CoInitialize:
+    CoInitialize()
 
 # Mediapipe initialization
 mp_hands = mp.solutions.hands
 hands = mp_hands.Hands(static_image_mode=False, max_num_hands=2, min_detection_confidence=0.75)
 draw = mp.solutions.drawing_utils
 
-# Pycaw setup for volume control
-devices = AudioUtilities.GetSpeakers()
-interface = devices.Activate(IAudioEndpointVolume._iid_, CLSCTX_ALL, None)
-volume = cast(interface, POINTER(IAudioEndpointVolume))
+# Pycaw setup for volume control if on Windows
+if AudioUtilities:
+    devices = AudioUtilities.GetSpeakers()
+    interface = devices.Activate(IAudioEndpointVolume._iid_, CLSCTX_ALL, None)
+    volume = cast(interface, POINTER(IAudioEndpointVolume))
+else:
+    volume = None
 
 # Webcam controls
 camera_running = {'brightness': False, 'volume': False, 'mouse': False}
@@ -66,6 +82,9 @@ def adjust_brightness(landmarks):
         st.error(f"Error adjusting brightness: {e}")
 
 def adjust_volume(landmarks):
+    if not volume:
+        st.error("Volume control is only supported on Windows.")
+        return
     try:
         y_coordinate = landmarks[4]['y']
         volume_level = (1 - y_coordinate) * -65  # Convert to dB scale
