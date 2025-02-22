@@ -2,7 +2,6 @@ streamlit
 opencv-python-headless
 mediapipe
 google
-comtypes
 pycaw
 pyautogui
 screen-brightness-control
